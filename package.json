@@ -1,0 +1,33 @@
+{
+    "name": "@alkimiya/v2.1-core",
+    "version": "1.0.0",
+    "author": "Alkimiya",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Alkimiya/v2.1-core.git"
+    },
+    "dependencies": {
+        "@openzeppelin/contracts": "^4.9.2",
+        "@uniswap/v2-core": "^1.0.1",
+        "@uniswap/v2-periphery": "^1.1.0-beta.0"
+    },
+    "scripts": {
+        "test": "forge test",
+        "start": "anvil",
+        "format": "forge fmt",
+        "lint": "forge fmt --check; solhint 'contracts/**/*.sol'"
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com"
+    },
+    "files": [
+        "out",
+        "contracts/",
+        "lib"
+    ],
+    "description": "Solidity contracts and tests for Silica V2",
+    "devDependencies": {
+        "solhint": "^3.4.1"
+    }
+}

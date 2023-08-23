@@ -1,0 +1,32 @@
+version: 2.1
+orbs:
+  node: circleci/node@5.0.2
+jobs:
+  npm-install:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install-packages: # runs npm ci by default
+          app-dir: ./
+          pkg-manager: npm
+      - persist_to_workspace:
+          root: .
+          paths:
+            - node_modules
+  run-unit-tests:
+    docker:
+      - image: ghcr.io/foundry-rs/foundry:latest
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          name: Run unit tests
+          command: forge test
+workflows:
+  build_and_test:
+    jobs:
+      - npm-install
+      - run-unit-tests:
+          requires:
+            - npm-install

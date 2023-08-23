@@ -1,0 +1,43 @@
+# Foundry Configuration File
+# Default definitions: https://github.com/gakonst/foundry/blob/b7917fa8491aedda4dd6db53fbb206ea233cd531/config/src/lib.rs#L782
+# See more config options at: https://github.com/gakonst/foundry/tree/master/config
+
+# The Default Profile
+[profile.default]
+# Sets the concrete solc version to use
+# This overrides the `auto_detect_solc` value
+src = './contracts'
+test = './contracts/test'
+solc_version = '0.8.19'
+#auto_detect_solc = true
+# gas report
+gas_reports = ["SilicaV2_1", "SilicaFactory", "RewardsProxy", "SwapProxy"]
+# Increase optimizer_runs
+optimizer = true
+optimizer_runs = 1_000
+# Fuzz more than the default 256
+fuzz_runs = 1_000
+# Configure remappings
+remappings = [
+  "@ds=lib/ds-test/src/",
+  "@std=lib/forge-std/src/",
+  "@solmate=lib/solmate/src/",
+  "@clones=lib/clones-with-immutable-args/src/",
+  "hardhat=node_modules/hardhat/",
+  "@openzeppelin=node_modules/@openzeppelin/",
+  "@alkimiya=node_modules/@alkimiya",
+  "@uniswap=node_modules/@uniswap",
+]
+
+[doc]
+  ignore = [
+    "**/*.t.sol",
+    "contracts/test/*/*.sol"
+  ]
+  out = "docs"
+  repository = "https://github.com/Alkimiya/v2.1-core/tree/comments-docs"
+
+# Extreme Fuzzing CI Profile :P
+[profile.ci]
+fuzz_runs = 100_000
+

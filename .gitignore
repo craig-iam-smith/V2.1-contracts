@@ -1,0 +1,19 @@
+node_modules
+
+#hardhat files
+cache
+artifacts
+frontend/src/hardhat
+coverage.json
+coverage
+frontend
+deployments
+
+# typescript bindings
+/src/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+
+out/
