@@ -75,3 +75,8 @@ svm install "0.7.6"
 ```zsh
 git submodule update --init --recursive
 ```
+or 
+
+```zsh
+forge install foundry-rs/forge-std
+```
