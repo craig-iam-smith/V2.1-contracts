@@ -55,7 +55,7 @@ abstract contract BaseTest is Test {
     address internal oracleCalculatorAddress;
 
     uint32 lastIndexedDay = 40;
-    CheatCodes constant cheats = CheatCodes(HEVM_ADDRESS);
+    CheatCodes constant cheats = CheatCodes(VM_ADDRESS);
 
     function setUpOracles() internal {
         oraclePublisherPrivateKey = 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80;
